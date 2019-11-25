@@ -120,20 +120,22 @@ someTeam.teamKnowledges()
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-// Liskov Substitution Principle
-print("3. Liskov Substitution Principle example")
-/// Наследующий класс должен дополнять, а не замещать поведение базового класса
+# Liskov Substitution Principle
+Наследующий класс должен дополнять, а не замещать поведение базового класса
 
-// Example:
+<h3>Example:</h3>
 
 protocol CanFly { /// -> создаем протокол, который будет характеризовать какой-то определенный класс
+
     var flyInAir: Bool { get }
 }
 
 protocol CanSwim { /// -> создаем протокол, который будет характеризовать какой-то определенный класс
+
     var swimByRiver: Bool { get }
 }
 
+```
 class Transport { /// -> создаем базовый класс с переменной 'name', которая является общей для всего транспорта
     let name: String
     
@@ -159,27 +161,32 @@ class Ferry: Transport, CanSwim {
         super.init(name: name)
     }
 }
+```
 
 let airplane = Airplane(flyInAir: true, name: "Plane")
 let ferry = Ferry(swimByRiver: true, name: "Ferry")
-print("There are two types of transport - \(airplane.name) and \(ferry.name)")
-print("--------------------------------------------")
 
-// Вывод:
-/// Мы дополнили базовый класс при помощи протоколов CanSwim и CanFly при этом не меняя его поведение
+<strong>* Вывод:</strong>
+Мы дополнили базовый класс при помощи протоколов CanSwim и CanFly при этом не меняя его поведение
 
-// Interface Segregation Principle
-print("4. Interface Segregation Principle example")
-/// Создавайте узкоспециализированные интерфейсы, предназначенные для конкретного клиента. Клиенты не должны зависеть от интерфейсов, которые они не используют
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Interface Segregation Principle
+Создавайте узкоспециализированные интерфейсы, предназначенные для конкретного клиента. Клиенты не должны зависеть от интерфейсов, которые они не используют
+
+<h3>Example:</h3>
 
 protocol DriverRequirement {
+
     func ableToDriver()
 }
 
 protocol InterpreterRequirement {
+
     func ableToTranslate()
 }
 
+```
 class DriverVacancy: DriverRequirement {
     func ableToDriver() {
         print("The driver is suite for this work")
@@ -191,26 +198,30 @@ class InterpreterVacancy: InterpreterRequirement {
         print("The interpreter is suite for this work")
     }
 }
+```
 
 let driver = DriverVacancy()
 driver.ableToDriver()
 
 let interpreter = InterpreterVacancy()
 interpreter.ableToTranslate()
-print("--------------------------------------------")
 
-// Вывод:
-/// Под конкретную вакансию создан конкретный протокол с требованиями именно к этой вакансии и класс, который подписан на этот протокол реализует только тот метод, который его касается
+<strong>* Вывод:</strong>
+Под конкретную вакансию создан конкретный протокол с требованиями именно к этой вакансии и класс, который подписан на этот протокол реализует только тот метод, который его касается
 
-// Dependency inversion Principle
-print("5. Dependency inversion Principle example")
-/// Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций
+-----------------------------------------------------------------------------------------------------------------------------
 
-// Example:
+# Dependency inversion Principle
+Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций
+
+<h3>Example:</h3>
+
 protocol ItemsInStock {
+
     func hasItemToBuy()
 }
 
+```
 class Shop {
     var goods: ItemsInStock
     
@@ -230,6 +241,7 @@ class FoodItem: ItemsInStock {
         print("Food is available in the shop")
     }
 }
+```
 
 let miniShop = Shop(goods: ShoesItem())
 miniShop.goods.hasItemToBuy()
@@ -237,6 +249,6 @@ miniShop.goods.hasItemToBuy()
 let superMarket = Shop(goods: FoodItem())
 superMarket.goods.hasItemToBuy()
 
-// Вывод:
-/// Класс Shop не должен зависеть от переменной goods, иначе магазин будет продавать только один вид товара
-/// Код должен быть гибким и мы должны иметь возможность подставлять разные классы товаров. Все классы должны быть подписаны на протокол ItemsInStock
+<strong>* Вывод:</strong>
+Класс Shop не должен зависеть от переменной goods, иначе магазин будет продавать только один вид товара
+Код должен быть гибким и мы должны иметь возможность подставлять разные классы товаров. Все классы должны быть подписаны на протокол ItemsInStock
