@@ -1,8 +1,6 @@
 # SOLID-Principles
 SOLID with examples
 
-SOLID
-
 1. S: Single Responsibility Principle -> Принцип единственной ответственности
 2. O: Open-Closed Principle           -> Принцип открытости-закрытости
 3. L: Liskov Substitution Principle   -> Принцип подстановки Барбары Лисков
@@ -10,6 +8,7 @@ SOLID
 5. Dependency Inversion Principle     -> Принцип инверсии зависимостей
 
 "Single Responsibility Principle"
+
 Класс должен быть ответственен лишь за что-то одно. Если класс отвечает за решение нескольких задач, его подсистемы, реализующие решение этих задач, оказываются связанными друг с другом. Изменения в одной такой подсистеме ведут к изменениям в другой.
 
 Example:
