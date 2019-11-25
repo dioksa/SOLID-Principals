@@ -12,21 +12,23 @@ SOLID with examples
 Класс должен быть ответственен лишь за что-то одно. Если класс отвечает за решение нескольких задач, его подсистемы, реализующие решение этих задач, оказываются связанными друг с другом. Изменения в одной такой подсистеме ведут к изменениям в другой.
 
 <h1>Example:</h1>
-```
+
 protocol OrderProtocol {
 
     func takeAnOrder() -> String
 }
-```
 
 protocol ConfirmationProtocol { 
+
     func confirmOrder() -> String
 }
 
 protocol SenderProtocol { 
+
     func sendOrder() -> String
 }
- ```
+
+```
 class Order: OrderProtocol {
     func takeAnOrder() -> String {
         return "User make an order"
