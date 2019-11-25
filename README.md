@@ -7,11 +7,11 @@ SOLID with examples
 4. Interface Segregation Principle    -> Принцип разделения интерфейса
 5. Dependency Inversion Principle     -> Принцип инверсии зависимостей
 
-"Single Responsibility Principle"
+# Single Responsibility Principle
 
 Класс должен быть ответственен лишь за что-то одно. Если класс отвечает за решение нескольких задач, его подсистемы, реализующие решение этих задач, оказываются связанными друг с другом. Изменения в одной такой подсистеме ведут к изменениям в другой.
 
-Example:
+<h1>Example:</h1>
 protocol OrderProtocol {
     func takeAnOrder() -> String
 }
@@ -61,7 +61,7 @@ let someShop = InternetShop(order: Order(), confirmation: Confirmation(), sender
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-"Open-Closed Principle"
+# Open-Closed Principle
 Программные сущности (классы, модули, функции) должны быть открыты для расширения, но не для модификации.
 
 Example:
